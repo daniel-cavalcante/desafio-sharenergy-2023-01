@@ -26,17 +26,30 @@ interface RandomUser {
   picture: string;
 }
 
+// Trocar por enums...
+type Page = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type Results = 10 | 100;
+
 export class RandomUserGeneratorResponse {
   readonly randomUserAPIParams: string = 'name,email,login,picture,dob';
+  readonly SEED = '5ae2a1a99811e5b3';
+  readonly RESULTS = '10';
 
   constructor(protected request: AxiosStatic) {}
 
-  public async fetchUsers(results: number): Promise<RandomUser[]> {
+  public async fetchUsers(
+    page: Page,
+    results?: Results // Number of hits per page. (currently is 10)
+  ): Promise<RandomUser[]> {
     try {
       const response = await this.request.get<RandomUserListSource>(
-        `https://randomuser.me/api/?results=${results}&inc=${this.randomUserAPIParams}`
+        'https://randomuser.me/api/' +
+          `?results=${results ? results : 10}` +
+          `&page=${page}` +
+          `&seed=${this.SEED}` +
+          `&inc=${this.randomUserAPIParams}`
       );
-      return this.formatResponse(response.data);
+      return this.formatData(response.data);
     } catch (err: unknown) {
       throw new Error(
         `Unexpected error when trying to communicate to API: ${
@@ -46,10 +59,10 @@ export class RandomUserGeneratorResponse {
     }
   }
 
-  private formatResponse(list: RandomUserListSource): RandomUser[] {
-    let randomUserArray: RandomUser[] = [];
+  private formatData(list: RandomUserListSource): RandomUser[] {
+    const formatedList: RandomUser[] = [];
     list.results.forEach((user) => {
-      randomUserArray.push({
+      formatedList.push({
         name: user.name.first + user.name.last,
         email: user.email,
         username: user.login.username,
@@ -58,6 +71,32 @@ export class RandomUserGeneratorResponse {
       });
     });
 
-    return randomUserArray;
+    return formatedList;
+  }
+
+  public async searchFor(keywords: string): Promise<RandomUser[]> {
+    // The 'keywords' is expected to be a string of words separated by commas.
+    const keywordList: string[] = keywords.split(',');
+
+    try {
+      const allUsers = await this.fetchUsers(1, 100);
+      let filteredUsers: RandomUser[] = allUsers;
+      for (const keyword of keywordList) {
+        filteredUsers = filteredUsers.filter((user) => {
+          return (
+            user.name.includes(keyword) ||
+            user.username.includes(keyword) ||
+            user.email.includes(keyword)
+          );
+        });
+      }
+      return filteredUsers;
+    } catch (err: unknown) {
+      throw new Error(
+        `Unexpected error when trying to communicate to API: ${
+          (err as Error).message
+        }`
+      );
+    }
   }
 }
