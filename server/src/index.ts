@@ -3,6 +3,7 @@ import axios, { Axios, AxiosError } from 'axios';
 import bodyParser from 'body-parser';
 import express, { Application, Request, Response } from 'express';
 import { RandomUserGeneratorResponse } from './clients/randomUser';
+import { Dogs } from './clients/refreshDog';
 
 const app: Application = express();
 const port = 5000;
@@ -65,6 +66,34 @@ app.get(
         res.status(500).send({ error: 'Internal server error.' });
         console.error((error as AxiosError).cause);
       }
+    }
+  }
+);
+
+app.get(
+  '/api/v1/refresh-dog',
+  async (_: Request, res: Response): Promise<any> => {
+    const url = 'https://random.dog/';
+
+    try {
+      const doggos = new Dogs(axios);
+      await doggos.init();
+
+      const response = await axios.get(url + doggos.fetchRandom(), {
+        responseType: 'arraybuffer',
+      });
+
+      const image = Buffer.from(response.data, 'binary');
+
+      res.writeHead(200, {
+        'Content-Type': 'image/jpeg',
+        'Content-Length': image.length,
+      });
+
+      res.end(image);
+    } catch (error: unknown) {
+      res.status(500).send({ error: 'Internal server error.' });
+      console.error((error as AxiosError).cause);
     }
   }
 );
