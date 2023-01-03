@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Adriza Almeida",
+    "id": "842.283.743-29",
+    "phone": "(42) 3795-1906",
+    "location": [
+      "Rua Vinte E Um",
+      "9443",
+      "Suzano",
+      "Maranhão",
+      "87882"
+    ]
+  },
+  {
+    "name": "Haroldo Moraes",
+    "id": "311.893.308-21",
+    "phone": "(19) 4117-6502",
+    "location": [
+      "Rua Onze ",
+      "2540",
+      "Guaratinguetá",
+      "Distrito Federal",
+      "99597"
+    ]
+  },
+  {
+    "name": "Zenaide Lima",
+    "id": "441.027.244-88",
+    "phone": "(92) 4781-4312",
+    "location": [
+      "Rua São Sebastiao ",
+      "6330",
+      "Francisco Morato",
+      "Alagoas",
+      "22080"
+    ]
+  }
+]

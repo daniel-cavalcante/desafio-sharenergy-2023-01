@@ -4,9 +4,13 @@ import bodyParser from 'body-parser';
 import express, { Application, Request, Response } from 'express';
 import { RandomUserGeneratorResponse } from './clients/randomUser';
 import { Dogs } from './clients/refreshDog';
+import runDB from './database/sharenergy';
+import { FakeUsers } from './util/userGenerator';
 
 const app: Application = express();
 const port = 5000;
+
+runDB();
 
 app.use(bodyParser.json());
 
@@ -97,6 +101,9 @@ app.get(
     }
   }
 );
+
+const userList = new FakeUsers(axios);
+userList.generateJSON();
 
 try {
   app.listen(port, (): void => {
