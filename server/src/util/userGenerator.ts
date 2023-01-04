@@ -85,14 +85,12 @@ export class FakeUsers {
         name: user.name.first + ' ' + user.name.last,
         id: user.id.value,
         phone: user.phone,
-        location: `
-          ${user.location.street.name},
-          ${user.location.street.number.toString()},
-          ${user.location.city},
-          ${user.location.state},
-          ${user.location.country},
-          ${user.location.postcode.toString()},
-        `,
+        location: `${user.location.street.name},
+        ${user.location.street.number.toString()},
+        ${user.location.city},
+        ${user.location.state},
+        ${user.location.country},
+        ${user.location.postcode.toString()}`,
       });
     });
 
