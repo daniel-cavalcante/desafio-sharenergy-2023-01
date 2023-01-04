@@ -5,7 +5,10 @@ import express, { Application, Request, Response } from 'express';
 import { RandomUserGeneratorResponse } from './clients/randomUser';
 import { Dogs } from './clients/refreshDog';
 import runDB from './database/sharenergy';
+import router from './routes';
 import { FakeUsers } from './util/userGenerator';
+const userList = new FakeUsers(axios);
+userList.writeOnDB();
 
 const app: Application = express();
 const port = 5000;
@@ -102,8 +105,7 @@ app.get(
   }
 );
 
-const userList = new FakeUsers(axios);
-userList.generateJSON();
+app.use('/api/v1/', router);
 
 try {
   app.listen(port, (): void => {

@@ -12,15 +12,15 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  id: {
+    type: String,
+    required: true,
+  },
   phone: {
     type: String,
     required: true,
   },
   location: {
-    type: String,
-    required: true,
-  },
-  id: {
     type: String,
     required: true,
   },

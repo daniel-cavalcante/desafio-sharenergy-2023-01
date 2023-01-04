@@ -1,5 +1,6 @@
 import { AxiosStatic } from 'axios';
 import { writeFile } from 'fs';
+import User from '../models/user';
 
 interface RandomUserSource {
   readonly name: { [key: string]: string };
@@ -30,14 +31,28 @@ interface RandomUser {
   name: string;
   id: string;
   phone: string;
-  location: string[];
+  location: string;
 }
 
 export class FakeUsers {
   constructor(protected request: AxiosStatic) {}
 
+  public async writeOnDB() {
+    const list: RandomUser[] = await this.fetchUsers();
+    for (const user of list) {
+      const newEntry = new User({
+        name: user.name,
+        id: user.id,
+        phone: user.phone,
+        location: user.location,
+      });
+
+      await newEntry.save();
+    }
+  }
+
   public async generateJSON() {
-    const list: RandomUser[] = await this.fetchUsers(3);
+    const list: RandomUser[] = await this.fetchUsers();
     const data = JSON.stringify(list, null, 2);
 
     writeFile('generatedUsers.json', data, (err) => {
@@ -70,13 +85,14 @@ export class FakeUsers {
         name: user.name.first + ' ' + user.name.last,
         id: user.id.value,
         phone: user.phone,
-        location: [
-          user.location.street.name,
-          user.location.street.number.toString(),
-          user.location.city,
-          user.location.state,
-          user.location.postcode.toString(),
-        ],
+        location: `
+          ${user.location.street.name},
+          ${user.location.street.number.toString()},
+          ${user.location.city},
+          ${user.location.state},
+          ${user.location.country},
+          ${user.location.postcode.toString()},
+        `,
       });
     });
 
