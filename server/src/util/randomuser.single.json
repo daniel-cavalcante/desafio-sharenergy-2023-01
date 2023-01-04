@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "name": { "title": "Mr", "first": "Emil", "last": "Petersen" },
+      "email": "emil.petersen@example.com",
+      "login": {
+        "uuid": "4c402f86-c660-4af5-b278-33c87373ede9",
+        "username": "lazylion280",
+        "password": "blade",
+        "salt": "XxzaN0v8",
+        "md5": "d64ff88d6a9ce7902ce2b37edd31a93a",
+        "sha1": "7612af4066421d8e86c513a627f5aa08c2b2dc6b",
+        "sha256": "6bd62bdca0ddf285dfa331bcf32c329a3619ad0146d38eb5cb0e28dbb90f59d0"
+      },
+      "dob": { "date": "1956-09-22T10:14:41.931Z", "age": 66 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/54.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/54.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/54.jpg"
+      }
+    }
+  ],
+  "info": {
+    "seed": "663b3f1b0d033f23",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}
