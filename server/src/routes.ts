@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { getUserList } from './controllers/userCRUDController';
+import {
+  deleteUserEntry,
+  getUser,
+  getUserList,
+  registerNewUser,
+  updateUserInfo,
+} from './controllers/userCRUDController';
 import {
   getRandomUsers,
   searchRandomUsers,
@@ -20,5 +26,13 @@ router.get('/status-code/:code', sendCat);
 router.get('/refresh-dog', getDog);
 
 router.get('/user-crud', getUserList);
+
+router.get('/user-crud/:_id', getUser);
+
+router.post('/user-crud', registerNewUser);
+
+router.put('/user-crud', updateUserInfo);
+
+router.delete('/user-crud', deleteUserEntry);
 
 export default router;
