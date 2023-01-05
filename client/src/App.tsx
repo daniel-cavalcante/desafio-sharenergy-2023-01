@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Cat from "./components/Cat";
+import Dog from "./components/Dog";
+import Client from "./components/Client";
+
+import Missing from "./components/Missing";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Login />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/cat' element={<Cat />} />
+          <Route path='/dog' element={<Dog />} />
+          <Route path='/client' element={<Client />} />
+          <Route path='*' element={<Missing />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
