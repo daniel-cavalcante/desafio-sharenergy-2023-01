@@ -1,7 +1,8 @@
 import "../App.css";
 import { Link, Outlet } from "react-router-dom";
+import Logo from "./Logo";
 
-const Layout = () => {
+function Layout() {
   return (
     <>
       <header>
@@ -12,6 +13,9 @@ const Layout = () => {
             </li>
             <li>
               <Link to='/dog'>dogs</Link>
+            </li>
+            <li>
+              <Logo />
             </li>
             <li>
               <Link to='/cat'>cats</Link>
@@ -30,6 +34,6 @@ const Layout = () => {
       <footer>links...</footer>
     </>
   );
-};
+}
 
 export default Layout;
