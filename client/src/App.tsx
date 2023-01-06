@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./components/toBeUsed/Login";
-import Home from "./components/Home/Home";
+import RandomUserPage from "./components/RandomUser/RandomUserPage";
 import Cat from "./components/toBeUsed/Cat";
 import Dog from "./components/toBeUsed/Dog";
 import Client from "./components/Client";
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Login />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/home' element={<RandomUserPage />} />
           <Route path='/cat' element={<Cat />} />
           <Route path='/dog' element={<Dog />} />
           <Route path='/client' element={<Client />} />

@@ -4,17 +4,17 @@ import { RandomUser } from "../User.types";
 import Title from "../Title";
 import UserList from "../List";
 
-const Home = (): JSX.Element => {
+const RandomUserPage = (): JSX.Element => {
   const list: Array<RandomUser> = users.users;
   // Devo trocar por uma funçao que recebe um parâmetro de página! Para poder passar para o fetchUsers no backend
 
   return (
     <>
-      <div id='home-wrapper'>
+      <div id='random-user-page-wrapper'>
         <Title title={"random users"} />
         <SearchBar />
         <UserList list={list} />
-        <PageController />
+        <PageSelector />
       </div>
     </>
   );
@@ -51,8 +51,8 @@ const SearchBar = (): JSX.Element => {
   );
 };
 
-const PageController = (props: any): JSX.Element => {
-  return <div id='home-pageController'></div>;
+const PageSelector = (props: any): JSX.Element => {
+  return <div id='random-user-page-selector'></div>;
 };
 
-export default Home;
+export default RandomUserPage;

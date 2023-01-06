@@ -1,42 +1,61 @@
 import { ClientUser, RandomUser } from "./User.types";
 import { nanoid } from "nanoid";
 
-const UserList = (users: {
-  list: Array<ClientUser | RandomUser>;
-}): JSX.Element => {
+const UserList = (users: { list: Array<ClientUser | RandomUser> }) => {
+  let classNameSuffix: string = "";
+  if (isRandomUserArray(users)) {
+    classNameSuffix = "random-";
+  } else {
+    classNameSuffix = "client-";
+  }
   return (
-    <ul className='user-list'>
-      {users.list.map((item) => {
-        if (isRandomUser(item)) {
-          return (
-            <li key={nanoid()}>
-              <RandomUserCard user={item} />
-            </li>
-          );
-        } else {
-          return (
-            <li key={nanoid()}>
-              <ClientUserCard user={item} />
-            </li>
-          );
-        }
-      })}
-    </ul>
+    <ul className={`${classNameSuffix}user-list`}>{Lister(users.list)}</ul>
   );
+};
+
+const Lister = (list: Array<ClientUser | RandomUser>) => {
+  return list.map((item) => {
+    if (isRandomUser(item)) {
+      return (
+        <li key={nanoid()}>
+          <RandomUserCard user={item} />
+        </li>
+      );
+    } else {
+      return (
+        <li key={nanoid()}>
+          <ClientUserCard user={item} />
+        </li>
+      );
+    }
+  });
 };
 
 const RandomUserCard = (props: { user: RandomUser }) => {
   return (
     <div className='random-user-wrapper'>
-      <div className='random-user-pic'>
-        <img src={props.user.picture} alt='Profile avatar.' />
+      <div className='random-user-picture-frame'>
+        <img
+          className='random-user-picture'
+          src={props.user.picture}
+          alt='Profile avatar.'
+        />
       </div>
-      <ul className='random-user-info'>
-        {props.user.name}
-        <li>({props.user.username})</li>
-        <li>{props.user.email}</li>
-        <li>{props.user.age}</li>
-      </ul>
+
+      <div className='random-user-name-field'>{props.user.name}</div>
+      <div className='random-user-info-field'>
+        <ul>
+          <li>
+            <span className='random-user-username'>
+              ({props.user.username})
+            </span>
+          </li>
+          <li>{props.user.email}</li>
+          <li>
+            <span className='random-user-age'>{props.user.age}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
@@ -57,6 +76,12 @@ const ClientUserCard = (props: { user: ClientUser }) => {
 
 function isRandomUser(user: ClientUser | RandomUser): user is RandomUser {
   return (user as RandomUser).picture !== undefined;
+}
+
+function isRandomUserArray(users: {
+  list: Array<ClientUser | RandomUser>;
+}): users is { list: Array<RandomUser> } {
+  return (users.list[0] as RandomUser).picture !== undefined;
 }
 
 export default UserList;
