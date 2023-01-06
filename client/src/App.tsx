@@ -2,13 +2,13 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Login from "./components/Login";
-import Home from "./components/Home";
-import Cat from "./components/Cat";
-import Dog from "./components/Dog";
+import Login from "./components/toBeUsed/Login";
+import Home from "./components/Home/Home";
+import Cat from "./components/toBeUsed/Cat";
+import Dog from "./components/toBeUsed/Dog";
 import Client from "./components/Client";
 
-import Missing from "./components/Missing";
+import Missing from "./components/toBeUsed/Missing";
 
 function App() {
   return (

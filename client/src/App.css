@@ -16,7 +16,7 @@ header {
 }
 
 header ul {
-  /* Rests */
+  /* Resets */
   list-style-type: none;
   padding-left: 0;
 
@@ -38,7 +38,6 @@ header ul {
 header ul > li {
   display: inline-block;
 
-  /* margin: 5px; */
   padding: 1rem 0.5rem;
 }
 
@@ -54,4 +53,20 @@ footer {
   width: 100vw;
 
   background-color: var(--teal);
+}
+
+/* General */
+.page-title {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+/* §§ Home */
+.user-list {
+  list-style-type: none;
+}
+
+/* §§§ User */
+.random-user-wrapper {
+  display: flex;
 }
