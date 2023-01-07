@@ -3,9 +3,14 @@ import { RandomUser } from "../User.types";
 import Title from "../Title";
 import UserList from "../List";
 import SearchBar from "./SearchBar";
+import PageSelector from "./PageSelector";
 
 const RandomUserPage = (): JSX.Element => {
   const list: Array<RandomUser> = users.users;
+  const pages: number =
+    list.length % 12 === 0
+      ? list.length / 12
+      : Math.floor(list.length / 12) + 1;
   // Devo trocar por uma funçao que recebe um parâmetro de página! Para poder passar para o fetchUsers no backend
 
   return (
@@ -16,14 +21,10 @@ const RandomUserPage = (): JSX.Element => {
           <SearchBar />
         </div>
         <UserList list={list} />
-        <PageSelector />
+        <PageSelector pages={pages} />
       </div>
     </>
   );
-};
-
-const PageSelector = (props: any): JSX.Element => {
-  return <div id='random-user-page-selector'>P A G E \ S E L E C T O R</div>;
 };
 
 export default RandomUserPage;

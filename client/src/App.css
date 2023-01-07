@@ -63,7 +63,7 @@ footer {
 /* General */
 .page-title-wrapper {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
 
   margin-top: 2rem;
 }
@@ -75,13 +75,6 @@ footer {
 
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
-}
-
-.page-title-floating-block {
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
-
-  background-color: var(--otherteal);
 }
 
 .page-title-outer {
@@ -188,6 +181,50 @@ footer {
   margin: 1rem 0;
 }
 /* § PAGE SELECTOR */
+
+#random-user-page-selector {
+  margin-bottom: 2rem;
+}
+
+.page-selector-angle-button {
+  position: relative;
+  bottom: 0.5rem;
+
+  background-color: inherit;
+  border: none;
+
+  margin: auto 0.5rem;
+
+  color: var(--yellow);
+
+  font-size: 2.4rem;
+  font-weight: bold;
+
+  transform: scaleY(2.4);
+
+  text-shadow: 0 0.1rem 0 var(--teal);
+
+  cursor: pointer;
+}
+
+.page-selector-number-button {
+  background-color: inherit;
+  border: none;
+
+  margin: auto 0.5rem;
+
+  color: var(--darkteal);
+
+  font-size: 2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.page-selector-number-button-selected {
+  color: black;
+  font-size: 3rem;
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 /* §§ CARD * * * * * * * * * * * * * * * * * * * * */
