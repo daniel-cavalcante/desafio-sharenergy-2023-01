@@ -1,0 +1,361 @@
+:root {
+  --almost-white: #f4f7fa;
+  --ice: #cae8ea;
+  --darkice: #95b8b9;
+  --babyblue: #b6e1e3;
+  --lightteal: #7acccd;
+  --otherteal: #67baba;
+  --brightteal: #1cc2c4;
+  --teal: #4fa09f;
+  --darkteal: #176664;
+
+  --yellow: #e5ea72;
+}
+/* §§ Navigation */
+html {
+  background-color: var(--lightteal);
+  font-size: 10px;
+}
+
+header {
+  margin: 0 auto;
+}
+
+header ul {
+  /* Resets */
+  list-style-type: none;
+  padding-left: 0;
+
+  display: flex;
+  justify-content: space-around;
+
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+
+  font-size: 1.6rem;
+
+  background-color: var(--babyblue);
+
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+header ul > li {
+  display: inline-block;
+
+  padding: 1rem 0.5rem;
+}
+
+header ul > li > a {
+  text-decoration: none;
+  color: var(--darkteal);
+}
+
+footer {
+  margin: 0;
+  padding: 4rem;
+  background-color: var(--teal);
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* General */
+.page-title-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+
+  margin-top: 2rem;
+}
+
+.page-title-block {
+  height: 10rem;
+
+  background-color: var(--teal);
+
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.page-title-outer {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  justify-content: left;
+  align-items: center;
+}
+
+.page-title-inner {
+  position: relative;
+  top: 15%;
+
+  width: 90%;
+  height: 40%;
+
+  background-color: var(--otherteal);
+
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.page-title-text {
+  position: relative;
+  bottom: 2.8rem;
+
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+
+  line-height: 4rem;
+}
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* §§§ RANDOM USER PAGE* * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* § SEARCH ELEMENT */
+#random-user-search-bar {
+  text-align: center;
+}
+
+#random-user-label-input-wrapper {
+  margin: 1rem auto 0.3rem auto;
+  display: inline-block;
+}
+
+#random-user-search-label {
+  display: block;
+  padding-left: 2.4rem;
+  text-align: left;
+}
+
+#random-user-search-input {
+  margin: 0.3rem 1rem;
+  padding: 0.5rem 1.5rem;
+
+  width: 24rem;
+
+  border: none;
+  border-radius: 1rem;
+
+  color: grey;
+  text-align: center;
+}
+
+#random-user-search-input:focus {
+  outline: none;
+}
+
+#random-user-search-button {
+  margin: 1rem;
+  padding: 0.5rem 0;
+
+  width: 8rem;
+
+  background-color: #e5ea72;
+  color: teal;
+  text-align: center;
+
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 0.2rem 0 var(--teal);
+
+  font-weight: bold;
+}
+
+/* § CARD LIST */
+#random-user-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  list-style: none;
+  padding-left: 0;
+
+  justify-content: center;
+
+  overflow-y: auto;
+}
+
+#random-user-list > li {
+  margin: 1rem 0;
+}
+/* § PAGE SELECTOR */
+
+#random-user-page-selector {
+  margin-bottom: 2rem;
+}
+
+.page-selector-angle-button {
+  position: relative;
+  bottom: 0.5rem;
+
+  background-color: inherit;
+  border: none;
+
+  margin: auto 0.5rem;
+
+  color: var(--yellow);
+
+  font-size: 2.4rem;
+  font-weight: bold;
+
+  transform: scaleY(2.4);
+
+  text-shadow: 0 0.1rem 0 var(--teal);
+
+  cursor: pointer;
+}
+
+.page-selector-number-button {
+  background-color: inherit;
+  border: none;
+
+  margin: auto 0.5rem;
+
+  color: var(--darkteal);
+
+  font-size: 2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.page-selector-number-button-selected {
+  color: black;
+  font-size: 3rem;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* §§ CARD * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* § CARD GRID LAYOUT */
+.random-user-wrapper {
+  display: grid;
+  grid-template-areas:
+    "picture namefield"
+    "picture infofield";
+  grid-auto-columns: 10rem 20rem;
+  gap: 0;
+}
+
+.random-user-picture-frame {
+  grid-area: picture;
+}
+
+.random-user-name-field {
+  grid-area: namefield;
+}
+
+.random-user-info-field {
+  grid-area: infofield;
+}
+
+/* § CARD SHAPE and SIZE */
+.random-user-wrapper {
+  /* 
+  CHANGE WIDTH AND HEIGHT 
+  WHEN USING MEDIA QUERY
+  FOR LARGER SCREENS
+  */
+  width: 30rem;
+  height: 10rem;
+
+  margin: 0 auto;
+  padding: 1rem;
+
+  border-top-left-radius: 20rem;
+  border-bottom-left-radius: 20rem;
+
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+
+  background-color: var(--almost-white);
+
+  box-shadow: 0 0.5rem 0 var(--teal);
+}
+
+/* § CARD PICTURE */
+.random-user-picture-frame {
+  display: flex;
+
+  width: 95%;
+  height: 95%;
+
+  border: 4px solid;
+  border-color: var(--darkice);
+  border-radius: 50%;
+
+  overflow: hidden;
+}
+
+.random-user-picture-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* § CARD INFO */
+.random-user-name-field {
+  padding-left: 0.5rem;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.random-user-info-field {
+  padding-left: 0.5rem;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.random-user-info-field > ul {
+  list-style: none;
+  padding-left: 2.4rem;
+}
+
+.random-user-info-field > ul > li > .random-user-username {
+  color: var(--brightteal);
+}
+
+.random-user-info-field > ul > li > .random-user-username::after {
+  content: ")";
+}
+.random-user-info-field > ul > li > .random-user-username::before {
+  content: "(@";
+}
+
+.random-user-info-field > ul > li > .random-user-age::after {
+  content: " anos";
+}
+
+#random-user-page-selector {
+  text-align: center;
+  font-size: 3rem;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* § RANDOM USER MEDIA QUERY * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+@media screen and (min-width: 600px) {
+  /* TITLE AND SEARCH GRID LAYOUT */
+  #random-user-title-search-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
+
+  #random-user-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
+    grid-gap: 2rem;
+
+    padding: 1rem 5rem;
+    margin: 0 auto;
+  }
+
+  .random-user-wrapper {
+    width: 33rem;
+    height: 11rem;
+  }
+}
