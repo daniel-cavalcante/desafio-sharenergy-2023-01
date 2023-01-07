@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import users from "../../util/dummy/dummyUser.json";
 import { RandomUser } from "../User.types";
 import Title from "../Title";
