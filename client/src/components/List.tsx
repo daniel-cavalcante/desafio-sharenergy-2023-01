@@ -79,7 +79,9 @@ function isRandomUser(user: ClientUser | RandomUser): user is RandomUser {
 function isRandomUserArray(users: {
   list: Array<ClientUser | RandomUser>;
 }): users is { list: Array<RandomUser> } {
-  return (users.list[0] as RandomUser).picture !== undefined;
+  return Boolean(
+    users?.list?.length && (users.list[0] as RandomUser).picture !== undefined
+  );
 }
 
 export default UserList;

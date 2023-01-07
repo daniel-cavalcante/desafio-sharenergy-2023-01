@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import express, { Application, Request, Response } from 'express';
 import runDB from './database/sharenergy';
 import router from './routes';
+import cors from 'cors';
 // import { FakeUsers } from './util/userGenerator';
 // const userList = new FakeUsers(axios);
 // userList.writeOnDB();
@@ -11,10 +12,15 @@ const port = 5000;
 
 runDB();
 
-app.use(bodyParser.json());
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
-app.get('/', async (_: Request, res: Response): Promise<Response> => {
-  return res.status(200).send({
+app.use(bodyParser.json());
+app.use(cors());
+
+app.get('/api/test', (_: Request, res: Response) => {
+  // return
+  res.status(200).send({
     success: true,
   });
 });

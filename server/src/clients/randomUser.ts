@@ -27,13 +27,13 @@ interface RandomUser {
 }
 
 // Trocar por enums...
-type Page = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-type Results = 10 | 100;
+type Page = 1 | 2 | 3 | 4 | 5;
+type Results = 12 | 60;
 
 export class RandomUserGeneratorResponse {
   readonly randomUserAPIParams: string = 'name,email,login,picture,dob';
   readonly SEED = '5ae2a1a99811e5b3';
-  readonly RESULTS = '10';
+  readonly RESULTS = '12';
 
   constructor(protected request: AxiosStatic) {}
 
@@ -44,7 +44,7 @@ export class RandomUserGeneratorResponse {
     try {
       const response = await this.request.get<RandomUserListSource>(
         'https://randomuser.me/api/' +
-          `?results=${results ? results : 10}` +
+          `?results=${results ? results : this.RESULTS}` +
           `&page=${page}` +
           `&seed=${this.SEED}` +
           `&inc=${this.randomUserAPIParams}`
@@ -79,7 +79,7 @@ export class RandomUserGeneratorResponse {
     const keywordList: string[] = keywords.split(',');
 
     try {
-      const allUsers = await this.fetchUsers(1, 100);
+      const allUsers = await this.fetchUsers(1, 60);
       let filteredUsers: RandomUser[] = allUsers;
       for (const keyword of keywordList) {
         filteredUsers = filteredUsers.filter((user) => {
