@@ -3,6 +3,7 @@ import users from "../../util/dummy/dummyUser.json";
 import { RandomUser } from "../User.types";
 import Title from "../Title";
 import UserList from "../List";
+import SearchBar from "./SearchBar";
 
 const RandomUserPage = (): JSX.Element => {
   const list: Array<RandomUser> = users.users;
@@ -11,8 +12,10 @@ const RandomUserPage = (): JSX.Element => {
   return (
     <>
       <div id='random-user-page-wrapper'>
-        <Title title={"random users"} />
-        <SearchBar />
+        <div id='random-user-title-search-wrapper'>
+          <Title title={"random users"} />
+          <SearchBar />
+        </div>
         <UserList list={list} />
         <PageSelector />
       </div>
@@ -20,39 +23,8 @@ const RandomUserPage = (): JSX.Element => {
   );
 };
 
-const SearchBar = (): JSX.Element => {
-  const [stringInput, setStringInput] = useState("");
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    console.log("Not impletemented yet!", stringInput);
-  }
-  function handleChange(e: React.FormEvent) {
-    setStringInput((e.target as HTMLTextAreaElement).value);
-  }
-
-  return (
-    <div id='search-bar'>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          id='string-input'
-          name='keywords'
-          value={stringInput}
-          autoComplete='off'
-          placeholder='Enter name, username or e-mail...'
-          onChange={handleChange}
-        />
-        <button className='button' type='submit'>
-          search
-        </button>
-      </form>
-    </div>
-  );
-};
-
 const PageSelector = (props: any): JSX.Element => {
-  return <div id='random-user-page-selector'></div>;
+  return <div id='random-user-page-selector'>P A G E \ S E L E C T O R</div>;
 };
 
 export default RandomUserPage;

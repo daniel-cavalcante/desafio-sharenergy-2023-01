@@ -2,15 +2,13 @@ import { ClientUser, RandomUser } from "./User.types";
 import { nanoid } from "nanoid";
 
 const UserList = (users: { list: Array<ClientUser | RandomUser> }) => {
-  let classNameSuffix: string = "";
+  let idNameSuffix: string = "";
   if (isRandomUserArray(users)) {
-    classNameSuffix = "random-";
+    idNameSuffix = "random-";
   } else {
-    classNameSuffix = "client-";
+    idNameSuffix = "client-";
   }
-  return (
-    <ul className={`${classNameSuffix}user-list`}>{Lister(users.list)}</ul>
-  );
+  return <ul id={`${idNameSuffix}user-list`}>{Lister(users.list)}</ul>;
 };
 
 const Lister = (list: Array<ClientUser | RandomUser>) => {

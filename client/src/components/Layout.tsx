@@ -31,7 +31,7 @@ function Layout() {
         <Outlet />
       </main>
 
-      <footer>links...</footer>
+      <footer>F O O T E R</footer>
     </>
   );
 }

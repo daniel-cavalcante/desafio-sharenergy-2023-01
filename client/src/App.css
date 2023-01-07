@@ -4,6 +4,7 @@
   --darkice: #95b8b9;
   --babyblue: #b6e1e3;
   --lightteal: #7acccd;
+  --otherteal: #67baba;
   --brightteal: #1cc2c4;
   --teal: #4fa09f;
   --darkteal: #176664;
@@ -52,23 +53,95 @@ header ul > li > a {
 }
 
 footer {
-  height: 10rem;
   margin: 0;
+  padding: 4rem;
   background-color: var(--teal);
+  font-size: 3rem;
+  text-align: center;
 }
 
 /* General */
+.page-title-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.page-title-block {
+  background-color: var(--teal);
+
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.page-title-floating-block {
+  position: relative;
+  z-index: -1;
+  /* top: 50%; */
+  height: 50%;
+  background-color: var(--otherteal);
+}
 .page-title {
+  text-align: center;
   font-size: 4rem;
   font-weight: bold;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
-/* §§ RANDOM USER PAGE * * * * * * * * * * * * * * */
+/* §§§ RANDOM USER PAGE* * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 
+/* § SEARCH ELEMENT */
+#random-user-search-bar {
+  text-align: center;
+}
+
+#random-user-label-input-wrapper {
+  margin: 1rem auto 0.3rem auto;
+  display: inline-block;
+}
+
+#random-user-search-label {
+  display: block;
+  padding-left: 2.4rem;
+  text-align: left;
+}
+
+#random-user-search-input {
+  margin: 0.3rem 1rem;
+  padding: 0.5rem 1.5rem;
+
+  width: 24rem;
+
+  border: none;
+  border-radius: 1rem;
+
+  color: grey;
+  text-align: center;
+}
+
+#random-user-search-input:focus {
+  outline: none;
+}
+
+#random-user-search-button {
+  margin: 1rem;
+  padding: 0.5rem 0;
+
+  width: 8rem;
+
+  background-color: #e5ea72;
+  color: teal;
+  text-align: center;
+
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 0.2rem 0 var(--teal);
+
+  font-weight: bold;
+}
+
 /* § CARD LIST */
-.random-user-list {
+#random-user-list {
   display: flex;
   flex-wrap: wrap;
 
@@ -80,7 +153,7 @@ footer {
   overflow-y: auto;
 }
 
-.random-user-list > li {
+#random-user-list > li {
   margin: 1rem 0;
 }
 /* § PAGE SELECTOR */
@@ -189,11 +262,22 @@ footer {
   content: " anos";
 }
 
+#random-user-page-selector {
+  text-align: center;
+  font-size: 3rem;
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 /* § RANDOM USER MEDIA QUERY * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 @media screen and (min-width: 600px) {
-  .random-user-list {
+  /* TITLE AND SEARCH GRID LAYOUT */
+  #random-user-title-search-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+  }
+
+  #random-user-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(33rem, 1fr));
     grid-gap: 2rem;
