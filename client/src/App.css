@@ -110,6 +110,36 @@ footer {
 
   line-height: 4rem;
 }
+
+.input {
+  margin: 0.3rem 1rem;
+  padding: 0.5rem 1.5rem;
+
+  border: none;
+  border-radius: 1rem;
+
+  color: grey;
+  text-align: center;
+}
+
+.button {
+  margin: 1rem;
+  padding: 0.5rem 0;
+
+  width: 8rem;
+
+  background-color: #e5ea72;
+  color: teal;
+  text-align: center;
+
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0 0.2rem 0 var(--teal);
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 /* §§§ RANDOM USER PAGE* * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -131,39 +161,11 @@ footer {
 }
 
 #random-user-search-input {
-  margin: 0.3rem 1rem;
-  padding: 0.5rem 1.5rem;
-
   width: 24rem;
-
-  border: none;
-  border-radius: 1rem;
-
-  color: grey;
-  text-align: center;
 }
 
 #random-user-search-input:focus {
   outline: none;
-}
-
-#random-user-search-button {
-  margin: 1rem;
-  padding: 0.5rem 0;
-
-  width: 8rem;
-
-  background-color: #e5ea72;
-  color: teal;
-  text-align: center;
-
-  border: none;
-  border-radius: 5rem;
-  box-shadow: 0 0.2rem 0 var(--teal);
-
-  font-weight: bold;
-
-  cursor: pointer;
 }
 
 /* § CARD LIST */
@@ -229,9 +231,7 @@ footer {
   font-size: 3rem;
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
 /* §§ CARD * * * * * * * * * * * * * * * * * * * * */
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /* § CARD GRID LAYOUT */
 .random-user-wrapper {
@@ -338,9 +338,7 @@ footer {
   font-size: 3rem;
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
 /* § RANDOM USER MEDIA QUERY * * * * * * * * * * * */
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
 @media screen and (min-width: 600px) {
   /* TITLE AND SEARCH GRID LAYOUT */
   #random-user-title-search-wrapper {
@@ -360,5 +358,65 @@ footer {
   .random-user-wrapper {
     width: 33rem;
     height: 11rem;
+  }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* §§§ STATUS CODE PAGE* * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#status-code-bar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#status-code-input {
+  width: 15rem;
+}
+
+#cat-image {
+  display: block;
+
+  margin: 0 auto;
+
+  max-width: 90%;
+  height: auto;
+
+  border-radius: 5rem;
+}
+
+@media screen and (min-width: 600px) {
+  /* § GRID */
+  #status-code-display-wrapper {
+    display: grid;
+    grid-template-areas: "statusCodeBar imageDisplay";
+    grid-auto-columns: 2fr 3fr;
+  }
+
+  #status-code-bar {
+    grid-area: statusCodeBar;
+  }
+
+  #cat-image-wrapper {
+    grid-area: imageDisplay;
+  }
+
+  /* § SIZES AND POSITION */
+  #status-code-bar > form {
+    display: grid;
+    grid-template-areas:
+      "label label"
+      "input button";
+  }
+
+  #status-code-bar > form > label {
+    grid-area: label;
+  }
+  #status-code-input {
+    grid-area: input;
+  }
+
+  #status-code-bar > form > button {
+    grid-area: button;
   }
 }
