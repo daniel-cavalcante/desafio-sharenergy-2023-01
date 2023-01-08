@@ -454,6 +454,8 @@ footer {
   border-color: grey;
   border: 0.2rem solid;
   border-radius: 5rem;
+
+  cursor: pointer;
 }
 
 #dog-refresh-button {

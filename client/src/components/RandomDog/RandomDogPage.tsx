@@ -12,26 +12,18 @@ function RandomDog() {
     <div>
       <Title title={"random doggo"} />
       <div id='random-dog-wrapper'>
-        <DogDisplay />
-        <RefreshDog getDog={getDog} />
+        <DogDisplay getDog={getDog} />
+        <button id='dog-refresh-button' className='button' onClick={getDog}>
+          get dog!
+        </button>
       </div>
     </div>
   );
 }
 
-const RefreshDog = (props: { getDog: () => void }) => {
+const DogDisplay = (props: { getDog: () => void }) => {
   return (
-    <div id='dog-refresh-button-wrapper'>
-      <button id='dog-refresh-button' className='button' onClick={props.getDog}>
-        get dog!
-      </button>
-    </div>
-  );
-};
-
-const DogDisplay = () => {
-  return (
-    <div id='dog-image-wrapper'>
+    <div id='dog-image-wrapper' onClick={props.getDog}>
       <img
         id='dog-image'
         src={`http://localhost:5000/api/v1/refresh-dog?time=${new Date()}`}
