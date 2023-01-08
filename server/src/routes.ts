@@ -15,7 +15,7 @@ import getDog from './controllers/refreshDogController';
 
 const router = Router();
 
-router.get('/random-user-generator', getRandomUsers);
+router.get('/random-user-generator/:page', getRandomUsers);
 
 // Example URL:
 // http://localhost:5000/api/v1/random-user-generator/query?keywords=organic,sacha

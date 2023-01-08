@@ -27,7 +27,7 @@ interface RandomUser {
 }
 
 // Trocar por enums...
-type Page = 1 | 2 | 3 | 4 | 5;
+export type Page = 1 | 2 | 3 | 4 | 5;
 type Results = 12 | 60;
 
 export class RandomUserGeneratorResponse {
@@ -39,7 +39,7 @@ export class RandomUserGeneratorResponse {
 
   public async fetchUsers(
     page: Page,
-    results?: Results // Number of hits per page. (currently is 10)
+    results?: Results // Number of hits per page. (currently is 12)
   ): Promise<RandomUser[]> {
     try {
       const response = await this.request.get<RandomUserListSource>(

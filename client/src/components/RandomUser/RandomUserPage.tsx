@@ -1,4 +1,3 @@
-// import users from "../../util/dummy/dummyUser.json";
 import { RandomUser } from "../User.types";
 import Title from "../Title";
 import UserList from "../List";
@@ -8,18 +7,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const RandomUserPage = (): JSX.Element => {
-  // const list: Array<RandomUser> = users.users;
-  // const pages: number =
-  // list.length % 12 === 0
-  // ? list.length / 12
-  // : Math.floor(list.length / 12) + 1;
-  // Devo trocar por uma funçao que recebe um parâmetro de página! Para poder passar para o fetchUsers no backend
   const [randomUsers, setRandomUsers] = useState<RandomUser[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [maxPages] = useState<number>(5);
 
-  const getRandomUsers = async () => {
+  useEffect(() => {
+    getRandomUsers(page);
+  }, [page]);
+
+  const getRandomUsers = async (pageNumber: number) => {
     try {
       const response = await axios.get<RandomUser[]>(
-        "http://localhost:5000/api/v1/random-user-generator"
+        `http://localhost:5000/api/v1/random-user-generator/${pageNumber}`
       );
       setRandomUsers(response.data);
     } catch (err) {
@@ -27,21 +26,21 @@ const RandomUserPage = (): JSX.Element => {
     }
   };
 
-  useEffect(() => {
-    getRandomUsers();
-  }, []);
-
-  async function handleClick() {
-    try {
-      const response = await axios.get(
-        "http://localhost:5000/api/v1/random-user-generator"
-      );
-      console.log(response);
-    } catch (err) {
-      console.log("Errr");
-      console.log(err);
+  const decrement = () => {
+    if (page - 1 >= 1) {
+      setPage(page - 1);
     }
-  }
+  };
+
+  const increment = () => {
+    if (page + 1 <= maxPages) {
+      setPage(page + 1);
+    }
+  };
+
+  const changePage = (page: number) => {
+    setPage(page);
+  };
 
   return (
     <>
@@ -51,8 +50,13 @@ const RandomUserPage = (): JSX.Element => {
           <SearchBar />
         </div>
         <UserList list={randomUsers} />
-        <PageSelector pages={5} />
-        <button onClick={handleClick}>click me</button>
+        <PageSelector
+          pages={maxPages}
+          currentPage={page}
+          changePage={changePage}
+          decrement={decrement}
+          increment={increment}
+        />
       </div>
     </>
   );

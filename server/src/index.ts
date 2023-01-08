@@ -3,6 +3,7 @@ import express, { Application, Request, Response } from 'express';
 import runDB from './database/sharenergy';
 import router from './routes';
 import cors from 'cors';
+
 // import { FakeUsers } from './util/userGenerator';
 // const userList = new FakeUsers(axios);
 // userList.writeOnDB();
@@ -19,8 +20,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/api/test', (_: Request, res: Response) => {
-  // return
-  res.status(200).send({
+  return res.status(200).send({
     success: true,
   });
 });
