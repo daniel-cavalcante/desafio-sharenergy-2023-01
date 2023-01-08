@@ -56,7 +56,7 @@ const CatDisplay = (props: { statusCode: string }) => {
       <img
         id='cat-image'
         src={`http://localhost:5000/api/v1/status-code/${props.statusCode}`}
-        alt={`cat number ${props.statusCode}`}
+        alt={`Cat number ${props.statusCode}.`}
       />
     </div>
   );

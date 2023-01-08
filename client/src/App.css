@@ -420,3 +420,43 @@ footer {
     grid-area: button;
   }
 }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* §§§ RANDOM DOGO PAGE* * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#dog-image-wrapper {
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 90vw;
+  margin: 5rem auto;
+
+  background-color: var(--otherteal);
+  border-radius: 5rem;
+}
+
+#dog-image {
+  display: block;
+
+  margin: 3rem auto;
+
+  max-width: 90%;
+  max-height: 90%;
+
+  height: auto;
+
+  border-color: grey;
+  border: 0.2rem solid;
+  border-radius: 5rem;
+}
+
+#dog-refresh-button {
+  display: block;
+  margin: 3rem auto;
+}
