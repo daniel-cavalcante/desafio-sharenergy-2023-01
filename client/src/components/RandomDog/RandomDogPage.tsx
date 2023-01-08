@@ -11,7 +11,7 @@ function RandomDog() {
   return (
     <div>
       <Title title={"random doggo"} />
-      <div id='random-dog-wrapper'>
+      <div>
         <DogDisplay getDog={getDog} />
         <button id='dog-refresh-button' className='button' onClick={getDog}>
           get dog!

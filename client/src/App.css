@@ -462,3 +462,43 @@ footer {
   display: block;
   margin: 3rem auto;
 }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* §§§ LOGIN SCREEN* * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#login-teste-logo {
+  max-width: 40rem;
+
+  margin: 0 4vw;
+  margin-top: 20rem;
+  margin-bottom: 5rem;
+}
+
+#login-wrapper,
+#login-wrapper > form {
+  display: flex;
+
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#login-footer {
+  position: absolute;
+  bottom: 0;
+
+  height: 40vw;
+  width: 100%;
+
+  justify-content: right;
+  justify-items: right;
+
+  background-color: #183534;
+}
+
+#sharenergy-logo {
+  width: 10%;
+}
