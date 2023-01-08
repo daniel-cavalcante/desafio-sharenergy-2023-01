@@ -26,7 +26,7 @@ interface RandomUser {
   picture: string;
 }
 
-// Trocar por enums...
+export const MAX_PAGES = 5;
 export type Page = 1 | 2 | 3 | 4 | 5;
 type Results = 12 | 60;
 

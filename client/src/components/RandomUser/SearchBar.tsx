@@ -1,16 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = (): JSX.Element => {
+  const navigate = useNavigate();
+
   const [stringInput, setStringInput] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Not impletemented yet!", stringInput);
+    const keywords: string = stringInput.replace(" ", ",");
+    navigate(`/home/search/${keywords}`);
+    setStringInput("");
   }
+
   function handleChange(e: React.FormEvent) {
     setStringInput((e.target as HTMLTextAreaElement).value);
   }
-
   return (
     <div id='random-user-search-bar'>
       <form onSubmit={handleSubmit}>

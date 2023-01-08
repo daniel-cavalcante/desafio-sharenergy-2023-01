@@ -9,6 +9,7 @@ import Dog from "./components/toBeUsed/Dog";
 import Client from "./components/Client";
 
 import Missing from "./components/toBeUsed/Missing";
+import SearchRandomUserPage from "./components/RandomUser/SearchRandomUserPage";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Login />} />
           <Route path='/home' element={<RandomUserPage />} />
+          <Route
+            path='/home/search/:keywords'
+            element={<SearchRandomUserPage />}
+          />
           <Route path='/cat' element={<Cat />} />
           <Route path='/dog' element={<Dog />} />
           <Route path='/client' element={<Client />} />

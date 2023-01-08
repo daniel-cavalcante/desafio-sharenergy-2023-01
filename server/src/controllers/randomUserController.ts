@@ -1,6 +1,14 @@
 import { Request, Response } from 'express';
 import axios from 'axios';
-import { Page, RandomUserGeneratorResponse } from '../clients/randomUser';
+import {
+  MAX_PAGES,
+  Page,
+  RandomUserGeneratorResponse,
+} from '../clients/randomUser';
+
+const getMaxPages = (_: Request, res: Response) => {
+  return res.status(200).json({ maxPages: MAX_PAGES });
+};
 
 const getRandomUsers = async (
   req: Request,
@@ -26,4 +34,4 @@ const searchRandomUsers = async (
   }
 };
 
-export { getRandomUsers, searchRandomUsers };
+export { getMaxPages, getRandomUsers, searchRandomUsers };

@@ -7,18 +7,26 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const RandomUserPage = (): JSX.Element => {
+  const [maxPages, setMaxPages] = useState<number>(1);
   const [randomUsers, setRandomUsers] = useState<RandomUser[]>([]);
   const [page, setPage] = useState<number>(1);
-  const [maxPages] = useState<number>(5);
 
   useEffect(() => {
+    getMaxPages();
     getRandomUsers(page);
   }, [page]);
+
+  const getMaxPages = async () => {
+    const response = await axios.get(
+      "http://localhost:5000/api/v1/random-user-generator/maxPages"
+    );
+    setMaxPages(response.data.maxPages);
+  };
 
   const getRandomUsers = async (pageNumber: number) => {
     try {
       const response = await axios.get<RandomUser[]>(
-        `http://localhost:5000/api/v1/random-user-generator/${pageNumber}`
+        `http://localhost:5000/api/v1/random-user-generator/page/${pageNumber}`
       );
       setRandomUsers(response.data);
     } catch (err) {
@@ -49,14 +57,16 @@ const RandomUserPage = (): JSX.Element => {
           <Title title={"random users"} />
           <SearchBar />
         </div>
-        <UserList list={randomUsers} />
-        <PageSelector
-          pages={maxPages}
-          currentPage={page}
-          changePage={changePage}
-          decrement={decrement}
-          increment={increment}
-        />
+        <>
+          <UserList list={randomUsers} />
+          <PageSelector
+            pages={maxPages}
+            currentPage={page}
+            changePage={changePage}
+            decrement={decrement}
+            increment={increment}
+          />
+        </>
       </div>
     </>
   );
