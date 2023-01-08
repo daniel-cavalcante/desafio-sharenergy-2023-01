@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Title from "../Title";
 
 function RandomDog() {
@@ -27,7 +27,7 @@ const DogDisplay = (props: { getDog: () => void }) => {
       <img
         id='dog-image'
         src={`http://localhost:5000/api/v1/refresh-dog?time=${new Date()}`}
-        alt={"Random dog image."}
+        alt={"Random dog."}
       />
     </div>
   );
