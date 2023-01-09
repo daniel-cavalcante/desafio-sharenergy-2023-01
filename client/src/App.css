@@ -31,14 +31,14 @@ header ul {
 
   width: 70%;
   margin: 0 auto;
-  padding: 1rem 1rem;
+  padding: 2rem 1rem;
 
   font-size: 1.6rem;
 
   background-color: var(--babyblue);
 
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 10rem;
+  border-bottom-right-radius: 10rem;
 }
 
 header ul > li {
@@ -52,12 +52,25 @@ header ul > li > a {
   color: var(--darkteal);
 }
 
+#sharenergy-logo-nav-menu {
+  position: relative;
+  right: 1rem;
+  bottom: 0.5rem;
+  height: 200%;
+}
+
 footer {
   margin: 0;
   padding: 4rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
   background-color: var(--teal);
   font-size: 3rem;
-  text-align: center;
+  text-align: right;
+}
+
+#footer-teste-logo {
+  height: 8rem;
 }
 
 /* General */
@@ -156,6 +169,7 @@ footer {
 
 #random-user-search-label {
   display: block;
+  padding-top: 2rem;
   padding-left: 2.4rem;
   text-align: left;
 }
@@ -498,9 +512,9 @@ footer {
 #sharenergy-logo-container {
   position: absolute;
   bottom: 2vh;
-  right: 5vw;
+  right: 2vh;
 }
 
-#sharenergy-logo {
-  height: 15vh;
+#sharenergy-logo-login-page {
+  height: 8vh;
 }

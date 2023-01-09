@@ -60,7 +60,7 @@ const LoginPage = () => {
         </div>
       </form>
       <span id='sharenergy-logo-container'>
-        <SharenergyLogo id='sharenergy-logo' />
+        <SharenergyLogo id='sharenergy-logo-login-page' />
       </span>
     </div>
   );
