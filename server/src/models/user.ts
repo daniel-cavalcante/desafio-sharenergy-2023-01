@@ -2,6 +2,7 @@ import { model, Schema } from 'mongoose';
 
 interface IUser {
   name: string;
+  email: string;
   phone: string;
   location: string;
   id: string;
@@ -9,6 +10,10 @@ interface IUser {
 
 const userSchema = new Schema({
   name: {
+    type: String,
+    required: true,
+  },
+  email: {
     type: String,
     required: true,
   },

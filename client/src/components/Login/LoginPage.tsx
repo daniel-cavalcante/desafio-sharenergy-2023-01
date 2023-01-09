@@ -60,7 +60,9 @@ const LoginPage = () => {
         </div>
       </form>
       <span id='sharenergy-logo-container'>
-        <SharenergyLogo id='sharenergy-logo-login-page' />
+        <a href='https://www.sharenergy.com.br/' target='_blank'>
+          <SharenergyLogo id='sharenergy-logo-login-page' />
+        </a>
       </span>
     </div>
   );

@@ -16,13 +16,15 @@ function Layout() {
               <Link to='/dog'>dogs</Link>
             </li>
             <li>
-              <SharenergyLogo id='sharenergy-logo-nav-menu' />
+              <a href='https://www.sharenergy.com.br/' target='_blank'>
+                <SharenergyLogo id='sharenergy-logo-nav-menu' />
+              </a>
             </li>
             <li>
               <Link to='/cat'>cats</Link>
             </li>
             <li>
-              <Link to='/client'>clients</Link>
+              <Link to='/clients'>clients</Link>
             </li>
           </ul>
         </div>

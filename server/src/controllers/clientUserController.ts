@@ -22,10 +22,12 @@ const getUser = async (req: Request, res: Response) => {
 
 const registerNewUser = async (req: Request, res: Response) => {
   try {
-    const { name, id, phone, location }: { [key: string]: string } = req.body;
+    const { name, email, id, phone, location }: { [key: string]: string } =
+      req.body;
 
     const newEntry = new User({
       name: name,
+      email: email,
       id: id,
       phone: phone,
       location: location,
@@ -40,11 +42,14 @@ const registerNewUser = async (req: Request, res: Response) => {
 };
 
 const updateUserInfo = async (req: Request, res: Response) => {
-  const { _id, name, id, phone, location } = req.body;
+  const { _id, name, email, id, phone, location } = req.body;
 
   try {
     if (typeof name !== 'undefined') {
       await User.findByIdAndUpdate(_id, { $set: { name: name } });
+    }
+    if (typeof email !== 'undefined') {
+      await User.findByIdAndUpdate(_id, { $set: { email: email } });
     }
     if (typeof id !== 'undefined') {
       await User.findByIdAndUpdate(_id, { $set: { id: id } });

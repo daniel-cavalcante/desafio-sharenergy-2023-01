@@ -4,6 +4,7 @@ import runDB from './database/sharenergy';
 import router from './routes';
 import cors from 'cors';
 
+// import axios from 'axios';
 // import { FakeUsers } from './util/userGenerator';
 // const userList = new FakeUsers(axios);
 // userList.writeOnDB();

@@ -31,14 +31,24 @@ header ul {
 
   width: 70%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem 3rem;
 
   font-size: 1.6rem;
 
   background-color: var(--babyblue);
 
-  border-bottom-left-radius: 10rem;
-  border-bottom-right-radius: 10rem;
+  border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+}
+
+@media screen and (min-width: 600px) {
+  /* § GRID */
+  header ul {
+    padding: 2rem 1rem;
+
+    border-bottom-left-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+  }
 }
 
 header ul > li {
@@ -137,9 +147,9 @@ footer {
 
 .button {
   margin: 1rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
 
-  width: 8rem;
+  /* width: 8rem; */
 
   background-color: #e5ea72;
   color: teal;
@@ -517,4 +527,70 @@ footer {
 
 #sharenergy-logo-login-page {
   height: 8vh;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* §§§ CLIENTS PAGE* * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+#add-client-button {
+  width: 12rem;
+}
+
+.client-user-wrapper {
+  width: 30rem;
+
+  margin: 1rem auto;
+  padding: 0.2rem 1rem;
+
+  border-radius: 2rem;
+
+  background-color: var(--almost-white);
+}
+
+.client-user-name-buttons-wrapper {
+  display: grid;
+  grid-template-columns: auto 6rem;
+  gap: 1rem;
+
+  padding: 1rem 0.5rem;
+}
+
+.client-user-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.client-user-button {
+  margin: auto 0;
+}
+
+/* .client-user-detailed-info-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.client-user-detailed-info {
+  list-style: none;
+  padding-left: 0;
+
+  padding: 0.5rem 1rem;
+}
+
+.client-user-info {
+  font-weight: bold;
+}
+
+.client-user-edit-delete-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* text-align: center; */
+}
+
+.client-user-edit-delete-wrapper > button {
+  /* display: inline-block; */
+  margin: 0.5rem 1rem;
 }

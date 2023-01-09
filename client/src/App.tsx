@@ -23,7 +23,7 @@ function App() {
           />
           <Route path='/cat' element={<CatStatusCode />} />
           <Route path='/dog' element={<RandomDog />} />
-          <Route path='/client' element={<Clients />} />
+          <Route path='/clients' element={<Clients />} />
           <Route path='*' element={<Missing />} />
         </Route>
       </Routes>

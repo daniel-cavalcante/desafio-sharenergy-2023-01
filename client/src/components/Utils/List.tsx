@@ -1,14 +1,13 @@
 import { ClientUser, RandomUser } from "./User.types";
 import { nanoid } from "nanoid";
+import { useState } from "react";
 
 const UserList = (users: { list: Array<ClientUser | RandomUser> }) => {
-  let idNameSuffix: string = "";
   if (isRandomUserArray(users)) {
-    idNameSuffix = "random-";
+    return <ul id='random-user-list'>{Lister(users.list)}</ul>;
   } else {
-    idNameSuffix = "client-";
+    return <ol id='client-user-list'>{Lister(users.list)}</ol>;
   }
-  return <ul id={`${idNameSuffix}user-list`}>{Lister(users.list)}</ul>;
 };
 
 const Lister = (list: Array<ClientUser | RandomUser>) => {
@@ -59,16 +58,54 @@ const RandomUserCard = (props: { user: RandomUser }) => {
 };
 
 const ClientUserCard = (props: { user: ClientUser }) => {
+  const [expanded, setExpanded] = useState(true);
+
+  const expand = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <div className='client-user-wrapper'>
-      <ul className='client-user-info'>
-        <li>{props.user.name}</li>
-        <li>{props.user.email}</li>
-        <li>{props.user.phone}</li>
-        <li>{props.user.location}</li>
-        <li>{props.user.id}</li>
-      </ul>
-    </div>
+    <>
+      <div className='client-user-wrapper'>
+        <div className='client-user-name-buttons-wrapper'>
+          <span className='client-user-name' onClick={expand}>
+            {props.user.name}
+          </span>
+          <button className='button client-user-button' onClick={expand}>
+            {expanded ? "less" : "info"}
+          </button>
+        </div>
+
+        {expanded ? (
+          <>
+            <ul className='client-user-detailed-info'>
+              <li>
+                <span className='client-user-info'>e-mail: </span>
+                {props.user.email}
+              </li>
+              <li>
+                <span className='client-user-info'>telefone: </span>
+                {props.user.phone}
+              </li>
+              <li>
+                <span className='client-user-info'>endereço: </span>
+                <div>{props.user.location}</div>
+              </li>
+              <li>
+                <span className='client-user-info'>CPF: </span>
+                {props.user.id}
+              </li>
+            </ul>
+            <div className='client-user-edit-delete-wrapper'>
+              <button className='button client-user-button'>edit</button>
+              <button className='button client-user-button'>delete</button>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
+    </>
   );
 };
 
