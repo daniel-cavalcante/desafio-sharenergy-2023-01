@@ -1,6 +1,6 @@
-import { RandomUser } from "../User.types";
-import Title from "../Title";
-import UserList from "../List";
+import { RandomUser } from "../Utils/User.types";
+import Title from "../Utils/Title";
+import UserList from "../Utils/List";
 import SearchBar from "./SearchBar";
 import PageSelector from "./PageSelector";
 import axios from "axios";

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RandomUser } from "../User.types";
+import { RandomUser } from "../Utils/User.types";
 import axios from "axios";
-import UserList from "../List";
-import Title from "../Title";
+import UserList from "../Utils/List";
+import Title from "../Utils/Title";
 import SearchBar from "./SearchBar";
 
 const SearchRandomUserPage = () => {

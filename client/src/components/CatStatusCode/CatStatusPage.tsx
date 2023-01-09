@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Title from "../Title";
+import Title from "../Utils/Title";
 
 const CatStatusCode = () => {
   const [statusCode, setStatusCode] = useState("0");

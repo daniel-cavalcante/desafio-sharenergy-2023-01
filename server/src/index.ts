@@ -13,9 +13,6 @@ const port = 5000;
 
 runDB();
 
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
 app.use(bodyParser.json());
 app.use(cors());
 

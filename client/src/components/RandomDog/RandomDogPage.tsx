@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Title from "../Title";
+import Title from "../Utils/Title";
 
 function RandomDog() {
   const [rerender, setRerender] = useState(false);

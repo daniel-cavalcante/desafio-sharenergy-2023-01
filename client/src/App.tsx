@@ -1,15 +1,14 @@
 import "./App.css";
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import RandomUserPage from "./components/RandomUser/RandomUserPage";
-import Client from "./components/Client";
 
-import Missing from "./components/toBeUsed/Missing";
+import Missing from "./components/Missing";
 import SearchRandomUserPage from "./components/RandomUser/SearchRandomUserPage";
 import CatStatusCode from "./components/CatStatusCode/CatStatusPage";
 import RandomDog from "./components/RandomDog/RandomDogPage";
 import LoginPage from "./components/Login/LoginPage";
+import Clients from "./components/Clients/ClientsPage";
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
           />
           <Route path='/cat' element={<CatStatusCode />} />
           <Route path='/dog' element={<RandomDog />} />
-          <Route path='/client' element={<Client />} />
+          <Route path='/client' element={<Clients />} />
           <Route path='*' element={<Missing />} />
         </Route>
       </Routes>
