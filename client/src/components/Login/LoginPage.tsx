@@ -59,9 +59,9 @@ const LoginPage = () => {
           <label htmlFor='remember-checkbox'>remember me</label>
         </div>
       </form>
-      <div id='login-footer'>
+      <span id='sharenergy-logo-container'>
         <SharenergyLogo id='sharenergy-logo' />
-      </div>
+      </span>
     </div>
   );
 };
