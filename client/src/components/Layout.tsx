@@ -16,7 +16,11 @@ function Layout() {
               <Link to='/dog'>dogs</Link>
             </li>
             <li>
-              <a href='https://www.sharenergy.com.br/' target='_blank'>
+              <a
+                href='https://www.sharenergy.com.br/'
+                target='_blank'
+                rel='noreferrer'
+              >
                 <SharenergyLogo id='sharenergy-logo-nav-menu' />
               </a>
             </li>

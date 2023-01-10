@@ -46,7 +46,11 @@ const LoginPage = () => {
           onChange={handlePasswordChange}
         ></input>
         <Link to='/home'>
-          <button id='login-button' className='button' onClick={handleLogIn}>
+          <button
+            id='login-button'
+            className='button'
+            // onClick={handleLogIn}
+          >
             log in
           </button>
         </Link>
@@ -60,7 +64,11 @@ const LoginPage = () => {
         </div>
       </form>
       <span id='sharenergy-logo-container'>
-        <a href='https://www.sharenergy.com.br/' target='_blank'>
+        <a
+          href='https://www.sharenergy.com.br/'
+          target='_blank'
+          rel='noreferrer'
+        >
           <SharenergyLogo id='sharenergy-logo-login-page' />
         </a>
       </span>
