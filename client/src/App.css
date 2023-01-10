@@ -536,15 +536,42 @@ footer {
   width: 12rem;
 }
 
-.client-user-wrapper {
-  width: 30rem;
+/* §§ LIST */
+#client-user-list-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  margin: 1rem auto;
+#client-user-list {
+  margin: 0 auto;
+
+  font-size: 1.2em;
+}
+
+#client-user-list > li::marker {
+  color: var(--darkteal);
+
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* §§ CLIENT CARD* * * * * * * * * * * * * * * * * */
+.client-user-wrapper {
+  width: 80vw;
+
+  margin: 1rem 1rem;
   padding: 0.2rem 1rem;
 
   border-radius: 2rem;
 
   background-color: var(--almost-white);
+}
+
+@media screen and (min-width: 600px) {
+  .client-user-wrapper {
+    width: 35rem;
+  }
 }
 
 .client-user-name-buttons-wrapper {
@@ -565,12 +592,6 @@ footer {
   margin: auto 0;
 }
 
-/* .client-user-detailed-info-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
 .client-user-detailed-info {
   list-style: none;
   padding-left: 0;
@@ -586,11 +607,8 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* text-align: center; */
 }
 
 .client-user-edit-delete-wrapper > button {
-  /* display: inline-block; */
   margin: 0.5rem 1rem;
 }

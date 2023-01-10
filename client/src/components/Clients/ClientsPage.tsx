@@ -21,13 +21,16 @@ function Clients() {
       console.log(err);
     }
   };
+
   return (
     <div>
       <Title title={"clients list"} />
       <button className='button' id='add-client-button'>
         add a client
       </button>
-      <UserList list={clientUsers} />
+      <div id='client-user-list-wrapper'>
+        <UserList list={clientUsers} />
+      </div>
     </div>
   );
 }

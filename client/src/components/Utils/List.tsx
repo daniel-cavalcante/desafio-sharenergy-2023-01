@@ -58,52 +58,66 @@ const RandomUserCard = (props: { user: RandomUser }) => {
 };
 
 const ClientUserCard = (props: { user: ClientUser }) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   const expand = () => {
     setExpanded(!expanded);
   };
 
+  const deleteUser = () => {};
+
+  return (
+    <div className='client-user-wrapper'>
+      <div className='client-user-name-buttons-wrapper'>
+        <span className='client-user-name' onClick={expand}>
+          {props.user.name}
+        </span>
+        <button className='button client-user-button' onClick={expand}>
+          {expanded ? "less" : "info"}
+        </button>
+      </div>
+
+      {expanded ? (
+        <ClientUserCardInfo user={props.user} deleteUser={deleteUser} />
+      ) : (
+        <></>
+      )}
+    </div>
+  );
+};
+
+const ClientUserCardInfo = (props: {
+  user: ClientUser;
+  deleteUser: () => void;
+}) => {
   return (
     <>
-      <div className='client-user-wrapper'>
-        <div className='client-user-name-buttons-wrapper'>
-          <span className='client-user-name' onClick={expand}>
-            {props.user.name}
-          </span>
-          <button className='button client-user-button' onClick={expand}>
-            {expanded ? "less" : "info"}
-          </button>
-        </div>
-
-        {expanded ? (
-          <>
-            <ul className='client-user-detailed-info'>
-              <li>
-                <span className='client-user-info'>e-mail: </span>
-                {props.user.email}
-              </li>
-              <li>
-                <span className='client-user-info'>telefone: </span>
-                {props.user.phone}
-              </li>
-              <li>
-                <span className='client-user-info'>endereço: </span>
-                <div>{props.user.location}</div>
-              </li>
-              <li>
-                <span className='client-user-info'>CPF: </span>
-                {props.user.id}
-              </li>
-            </ul>
-            <div className='client-user-edit-delete-wrapper'>
-              <button className='button client-user-button'>edit</button>
-              <button className='button client-user-button'>delete</button>
-            </div>
-          </>
-        ) : (
-          <></>
-        )}
+      <ul className='client-user-detailed-info'>
+        <li>
+          <span className='client-user-info'>e-mail: </span>
+          {props.user.email}
+        </li>
+        <li>
+          <span className='client-user-info'>telefone: </span>
+          {props.user.phone}
+        </li>
+        <li>
+          <span className='client-user-info'>endereço: </span>
+          <div>{props.user.location}</div>
+        </li>
+        <li>
+          <span className='client-user-info'>CPF: </span>
+          {props.user.id}
+        </li>
+      </ul>
+      <div className='client-user-edit-delete-wrapper'>
+        <button className='button client-user-button'>edit</button>
+        <button
+          className='button client-user-button'
+          onClick={props.deleteUser}
+        >
+          delete
+        </button>
       </div>
     </>
   );
