@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ClientUser } from "../Utils/User.types";
 
-const ClientForm = (props: { userInfo: ClientUser }) => {
+const ClientForm = (props: { userInfo: ClientUser; isNew?: boolean }) => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState<ClientUser>(props.userInfo);
 
@@ -31,14 +31,24 @@ const ClientForm = (props: { userInfo: ClientUser }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/api/v1/clients`, {
-      name: userInfo.name,
-      email: userInfo.email,
-      _id: userInfo._id,
-      id: userInfo.id,
-      phone: userInfo.phone,
-      location: userInfo.location,
-    });
+    if (props.isNew) {
+      await axios.post(`http://localhost:5000/api/v1/clients`, {
+        name: userInfo.name,
+        email: userInfo.email,
+        id: userInfo.id,
+        phone: userInfo.phone,
+        location: userInfo.location,
+      });
+    } else {
+      await axios.put(`http://localhost:5000/api/v1/clients`, {
+        name: userInfo.name,
+        email: userInfo.email,
+        _id: userInfo._id,
+        id: userInfo.id,
+        phone: userInfo.phone,
+        location: userInfo.location,
+      });
+    }
     navigate("/clients");
   };
 

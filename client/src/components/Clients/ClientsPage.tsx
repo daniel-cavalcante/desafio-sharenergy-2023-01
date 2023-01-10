@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ClientUserList from "./ClientUserList";
 import Title from "../Utils/Title";
+import { Link } from "react-router-dom";
 
 function Clients() {
   const [clientUsers, setClientUsers] = useState<ClientUser[]>([]);
@@ -25,9 +26,11 @@ function Clients() {
   return (
     <div>
       <Title title={"clients list"} />
-      <button className='button' id='add-client-button'>
-        add a client
-      </button>
+      <Link to='/clients/new'>
+        <button className='button' id='add-client-button'>
+          add a client
+        </button>
+      </Link>
       <div id='client-user-list-wrapper'>
         <ClientUserList list={clientUsers} />
       </div>

@@ -10,6 +10,7 @@ import RandomDog from "./components/RandomDog/RandomDogPage";
 import LoginPage from "./components/Login/LoginPage";
 import Clients from "./components/Clients/ClientsPage";
 import EditClient from "./components/Clients/EditClientPage";
+import NewClient from "./components/Clients/NewClientPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/cat' element={<CatStatusCode />} />
           <Route path='/dog' element={<RandomDog />} />
           <Route path='/clients' element={<Clients />} />
+          <Route path='/clients/new' element={<NewClient />} />
           <Route path='/clients/edit/:_id' element={<EditClient />} />
           <Route path='*' element={<Missing />} />
         </Route>
