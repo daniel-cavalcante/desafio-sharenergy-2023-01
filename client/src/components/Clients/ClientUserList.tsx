@@ -1,12 +1,10 @@
-import { ClientUser, RandomUser } from "../Utils/User.types";
+import { ClientUser } from "../Utils/User.types";
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const ClientUserList = (users: {
-  list: Array<ClientUser>;
-  rerender: () => void;
-}) => {
+const ClientUserList = (users: { list: Array<ClientUser> }) => {
   const usersList = users.list.map((item) => {
     return (
       <li key={nanoid()}>
@@ -20,6 +18,7 @@ const ClientUserList = (users: {
 
 const ClientUserCard = (props: { user: ClientUser }) => {
   const [expanded, setExpanded] = useState(false);
+  const [userInfo, setUserInfo] = useState<ClientUser>(props.user);
 
   const expand = () => {
     setExpanded(!expanded);
@@ -40,7 +39,7 @@ const ClientUserCard = (props: { user: ClientUser }) => {
     <div className='client-user-wrapper'>
       <div className='client-user-name-buttons-wrapper'>
         <span className='client-user-name' onClick={expand}>
-          {props.user.name}
+          {userInfo.name}
         </span>
         <button className='button client-user-button' onClick={expand}>
           {expanded ? "less" : "info"}
@@ -48,7 +47,7 @@ const ClientUserCard = (props: { user: ClientUser }) => {
       </div>
 
       {expanded ? (
-        <ClientUserCardInfo user={props.user} deleteUser={deleteUser} />
+        <ClientUserCardInfo user={userInfo} deleteUser={deleteUser} />
       ) : (
         <></>
       )}
@@ -81,7 +80,9 @@ const ClientUserCardInfo = (props: {
         </li>
       </ul>
       <div className='client-user-edit-delete-wrapper'>
-        <button className='button client-user-button'>edit</button>
+        <Link to={`/clients/edit/${props.user._id}`}>
+          <button className='button client-user-button'>edit</button>
+        </Link>
         <button
           className='button client-user-button'
           onClick={props.deleteUser}

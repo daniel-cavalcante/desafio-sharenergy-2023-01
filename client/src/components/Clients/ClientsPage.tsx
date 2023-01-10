@@ -29,7 +29,7 @@ function Clients() {
         add a client
       </button>
       <div id='client-user-list-wrapper'>
-        <ClientUserList list={clientUsers} rerender={() => getClientUsers()} />
+        <ClientUserList list={clientUsers} />
       </div>
     </div>
   );

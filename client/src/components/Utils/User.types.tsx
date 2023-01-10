@@ -17,3 +17,14 @@ interface ClientUser extends User {
 }
 
 export type { User, RandomUser, ClientUser };
+
+// const EmptyClientUser: ClientUser = {
+//   name: "",
+//   email: "",
+//   _id: "",
+//   id: "",
+//   phone: "",
+//   location: "",
+// };
+
+// export default EmptyClientUser;
