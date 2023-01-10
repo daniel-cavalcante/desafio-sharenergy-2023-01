@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TheTesteDanielCavalcanteLogo, SharenergyLogo } from "../Logos/Logos";
@@ -24,13 +25,20 @@ const LoginPage = () => {
     setPassword((e.target as HTMLTextAreaElement).value);
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (rememberme && username && password) {
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
     }
-    navigate("/home");
+    const response = await axios.post("http://localhost:5000/api/v1/login", {
+      username: username,
+      password: password,
+    });
+    if (response.data.success) {
+      console.log("Successful login!");
+      navigate("/home");
+    }
   }
   return (
     <div id='login-wrapper'>

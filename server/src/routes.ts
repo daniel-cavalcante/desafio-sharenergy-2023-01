@@ -14,7 +14,11 @@ import {
 import sendCat from './controllers/statusCodeController';
 import getDog from './controllers/refreshDogController';
 
+import { login } from './middleware/auth';
+
 const router = Router();
+
+router.post('/login', login);
 
 router.get('/random-user-generator/maxPages', getMaxPages);
 
