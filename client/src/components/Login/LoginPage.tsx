@@ -1,11 +1,20 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { TheTesteDanielCavalcanteLogo, SharenergyLogo } from "../Logos/Logos";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const dosomething = () => {};
+  const localUsername = localStorage.getItem("username");
+  const localPassword = localStorage.getItem("password");
+  const [username, setUsername] = useState<string>(
+    localUsername ? localUsername : ""
+  );
+  const [password, setPassword] = useState<string>(
+    localPassword ? localPassword : ""
+  );
+
+  const [rememberme, setRememberme] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleUsernameChange(e: React.FormEvent) {
     setUsername((e.target as HTMLTextAreaElement).value);
@@ -15,16 +24,18 @@ const LoginPage = () => {
     setPassword((e.target as HTMLTextAreaElement).value);
   }
 
-  function handleLogIn(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // DO SOMETHING HERE...
-    console.log(username, password);
-    setUsername("");
+    if (rememberme && username && password) {
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+    }
+    navigate("/home");
   }
   return (
     <div id='login-wrapper'>
       <TheTesteDanielCavalcanteLogo id='login-teste-logo' />
-      <form onSubmit={dosomething}>
+      <form onSubmit={handleSubmit}>
         <input
           type='text'
           id='login-username-input'
@@ -45,20 +56,14 @@ const LoginPage = () => {
           placeholder='Password'
           onChange={handlePasswordChange}
         ></input>
-        <Link to='/home'>
-          <button
-            id='login-button'
-            className='button'
-            // onClick={handleLogIn}
-          >
-            log in
-          </button>
-        </Link>
+        <button id='login-button' className='button' type='submit'>
+          log in
+        </button>
         <div>
           <input
             id='remember-checkbox'
             type='checkbox'
-            onClick={() => {}}
+            onClick={() => setRememberme(!rememberme)}
           ></input>
           <label htmlFor='remember-checkbox'>remember me</label>
         </div>
