@@ -1,7 +1,7 @@
 import { ClientUser } from "../Utils/User.types";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import UserList from "../Utils/List";
+import ClientUserList from "./ClientUserList";
 import Title from "../Utils/Title";
 
 function Clients() {
@@ -29,7 +29,7 @@ function Clients() {
         add a client
       </button>
       <div id='client-user-list-wrapper'>
-        <UserList list={clientUsers} />
+        <ClientUserList list={clientUsers} rerender={() => getClientUsers()} />
       </div>
     </div>
   );

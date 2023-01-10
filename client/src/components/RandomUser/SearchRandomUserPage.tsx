@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RandomUser } from "../Utils/User.types";
 import axios from "axios";
-import UserList from "../Utils/List";
+import UserList from "./RandomUserList";
 import Title from "../Utils/Title";
 import SearchBar from "./SearchBar";
 

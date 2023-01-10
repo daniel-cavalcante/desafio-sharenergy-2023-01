@@ -10,6 +10,7 @@ interface RandomUser extends User {
 }
 
 interface ClientUser extends User {
+  _id: string;
   id: string;
   phone: string;
   location: string;
