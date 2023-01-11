@@ -398,7 +398,34 @@ footer {
 
 #status-code-bar {
   display: flex;
+
+  flex-direction: row;
   flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 2rem;
+}
+
+#status-code-bar > form {
+  display: grid;
+  grid-template-areas:
+    "label button"
+    "input button";
+}
+
+#status-code-bar > form > label {
+  grid-area: label;
+  text-align: center;
+}
+
+#status-code-bar > form > input {
+  grid-area: input;
+}
+
+#status-code-bar > form > button {
+  grid-area: button;
 }
 
 #status-code-input {
@@ -416,8 +443,7 @@ footer {
   border-radius: 5rem;
 }
 
-@media screen and (min-width: 600px) {
-  /* § GRID */
+/* @media screen and (min-width: 600px) {
   #status-code-display-wrapper {
     display: grid;
     grid-template-areas: "statusCodeBar imageDisplay";
@@ -432,7 +458,6 @@ footer {
     grid-area: imageDisplay;
   }
 
-  /* § SIZES AND POSITION */
   #status-code-bar > form {
     display: grid;
     grid-template-areas:
@@ -450,7 +475,7 @@ footer {
   #status-code-bar > form > button {
     grid-area: button;
   }
-}
+} */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 /* §§§ RANDOM DOGO PAGE* * * * * * * * * * * * * * */
@@ -543,8 +568,17 @@ main > div > div {
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
 /* §§§ CLIENTS PAGE* * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * */
+#client-title-button-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
+  padding-top: 2rem;
+}
+
 #add-client-button {
   width: 12rem;
+
+  margin-top: 5em;
 }
 
 /* §§ LIST */

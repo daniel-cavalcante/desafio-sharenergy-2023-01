@@ -1,11 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Title from "../Utils/Title";
 import EmptyClientUser, { ClientUser } from "../Utils/User.types";
 import ClientForm from "./ClientForm";
 
 const NewClient = () => {
-  const [userInfo, setUserInfo] = useState<ClientUser>(EmptyClientUser);
+  const [userInfo] = useState<ClientUser>(EmptyClientUser);
 
   return (
     <div>

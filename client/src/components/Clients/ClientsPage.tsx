@@ -25,12 +25,14 @@ function Clients() {
 
   return (
     <div>
-      <Title title={"clients list"} />
-      <Link to='/clients/new'>
-        <button className='button' id='add-client-button'>
-          add a client
-        </button>
-      </Link>
+      <div id='client-title-button-wrapper'>
+        <Title title={"clients list"} />
+        <Link to='/clients/new'>
+          <button className='button' id='add-client-button'>
+            add a client
+          </button>
+        </Link>
+      </div>
       <div id='client-user-list-wrapper'>
         <ClientUserList list={clientUsers} />
       </div>

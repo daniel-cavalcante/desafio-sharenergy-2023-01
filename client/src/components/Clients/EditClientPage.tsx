@@ -11,7 +11,7 @@ const EditClient = () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  });
 
   const getUser = async () => {
     const response = await axios.get<ClientUser>(

@@ -8,10 +8,10 @@ const CatStatusCode = () => {
     <div>
       <Title title={"codename: cat"} />
       <div id='status-code-display-wrapper'>
+        <CatDisplay statusCode={statusCode} />
         <StatusCode
           changeStatusCode={(n: number) => setStatusCode(n.toString())}
         />
-        <CatDisplay statusCode={statusCode} />
       </div>
     </div>
   );

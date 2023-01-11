@@ -18,7 +18,7 @@ const ClientUserList = (users: { list: Array<ClientUser> }) => {
 
 const ClientUserCard = (props: { user: ClientUser }) => {
   const [expanded, setExpanded] = useState(false);
-  const [userInfo, setUserInfo] = useState<ClientUser>(props.user);
+  const [userInfo] = useState<ClientUser>(props.user);
 
   const expand = () => {
     setExpanded(!expanded);
