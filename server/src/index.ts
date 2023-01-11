@@ -3,7 +3,6 @@ import express, { Application, Request, Response } from 'express';
 import runDB from './database/sharenergy';
 import router from './routes';
 import cors from 'cors';
-import cookieParser from 'cookie-parser';
 
 // import axios from 'axios';
 // import { FakeUsers } from './util/userGenerator';
