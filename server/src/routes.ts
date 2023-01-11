@@ -5,7 +5,7 @@ import {
   getUserList,
   registerNewUser,
   updateUserInfo,
-} from './controllers/userCRUDController';
+} from './controllers/clientUserController';
 import {
   getMaxPages,
   getRandomUsers,
@@ -14,7 +14,11 @@ import {
 import sendCat from './controllers/statusCodeController';
 import getDog from './controllers/refreshDogController';
 
+import { login } from './middleware/auth';
+
 const router = Router();
+
+router.post('/login', login);
 
 router.get('/random-user-generator/maxPages', getMaxPages);
 
@@ -28,14 +32,14 @@ router.get('/status-code/:code', sendCat);
 
 router.get('/refresh-dog', getDog);
 
-router.get('/user-crud', getUserList);
+router.get('/clients', getUserList);
 
-router.get('/user-crud/:_id', getUser);
+router.get('/clients/:_id', getUser);
 
-router.post('/user-crud', registerNewUser);
+router.post('/clients', registerNewUser);
 
-router.put('/user-crud', updateUserInfo);
+router.put('/clients', updateUserInfo);
 
-router.delete('/user-crud', deleteUserEntry);
+router.delete('/clients', deleteUserEntry);
 
 export default router;

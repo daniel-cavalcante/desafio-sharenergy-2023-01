@@ -1,8 +1,9 @@
 import "../App.css";
 import { Link, Outlet } from "react-router-dom";
-import Logo from "./Logo";
+import { SharenergyLogo, TheTesteDanielCavalcanteLogo } from "./Logos/Logos";
 
 function Layout() {
+  // const [selected, setSelected] = ..?
   return (
     <>
       <header>
@@ -15,13 +16,19 @@ function Layout() {
               <Link to='/dog'>dogs</Link>
             </li>
             <li>
-              <Logo />
+              <a
+                href='https://www.sharenergy.com.br/'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <SharenergyLogo id='sharenergy-logo-nav-menu' />
+              </a>
             </li>
             <li>
               <Link to='/cat'>cats</Link>
             </li>
             <li>
-              <Link to='/client'>clients</Link>
+              <Link to='/clients'>clients</Link>
             </li>
           </ul>
         </div>
@@ -31,7 +38,9 @@ function Layout() {
         <Outlet />
       </main>
 
-      <footer>F O O T E R</footer>
+      <footer>
+        <TheTesteDanielCavalcanteLogo id='footer-teste-logo' />
+      </footer>
     </>
   );
 }

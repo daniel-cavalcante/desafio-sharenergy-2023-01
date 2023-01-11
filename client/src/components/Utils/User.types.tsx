@@ -10,9 +10,20 @@ interface RandomUser extends User {
 }
 
 interface ClientUser extends User {
+  _id?: string;
   id: string;
   phone: string;
   location: string;
 }
 
 export type { User, RandomUser, ClientUser };
+
+const EmptyClientUser: ClientUser = {
+  name: "",
+  email: "",
+  id: "",
+  phone: "",
+  location: "",
+};
+
+export default EmptyClientUser;

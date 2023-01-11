@@ -1,6 +1,6 @@
-import { RandomUser } from "../User.types";
-import Title from "../Title";
-import UserList from "../List";
+import { RandomUser } from "../Utils/User.types";
+import Title from "../Utils/Title";
+import RandomUserList from "./RandomUserList";
 import SearchBar from "./SearchBar";
 import PageSelector from "./PageSelector";
 import axios from "axios";
@@ -58,7 +58,7 @@ const RandomUserPage = (): JSX.Element => {
           <SearchBar />
         </div>
         <>
-          <UserList list={randomUsers} />
+          <RandomUserList list={randomUsers} />
           <PageSelector
             pages={maxPages}
             currentPage={page}

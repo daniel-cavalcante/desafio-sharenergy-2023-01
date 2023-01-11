@@ -29,6 +29,7 @@ const SearchBar = (): JSX.Element => {
           <input
             type='text'
             id='random-user-search-input'
+            className='input'
             name='keywords'
             value={stringInput}
             autoComplete='off'
@@ -36,7 +37,7 @@ const SearchBar = (): JSX.Element => {
             onChange={handleChange}
           />
         </div>
-        <button id='random-user-search-button' type='submit'>
+        <button className='button' type='submit'>
           search
         </button>
       </form>

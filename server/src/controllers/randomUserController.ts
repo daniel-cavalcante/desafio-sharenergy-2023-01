@@ -4,7 +4,7 @@ import {
   MAX_PAGES,
   Page,
   RandomUserGeneratorResponse,
-} from '../clients/randomUser';
+} from '../externalAPIClients/randomUser';
 
 const getMaxPages = (_: Request, res: Response) => {
   return res.status(200).json({ maxPages: MAX_PAGES });

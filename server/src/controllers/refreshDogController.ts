@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import axios, { AxiosError } from 'axios';
-import { Dogs } from '../clients/refreshDog';
+import { Dogs } from '../externalAPIClients/refreshDog';
 
 const getDog = async (_: Request, res: Response): Promise<any> => {
   const url = 'https://random.dog/';
