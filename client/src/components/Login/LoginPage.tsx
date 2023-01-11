@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TheTesteDanielCavalcanteLogo, SharenergyLogo } from "../Logos/Logos";
@@ -31,13 +31,18 @@ const LoginPage = () => {
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
     }
-    const response = await axios.post("http://localhost:5000/api/v1/login", {
-      username: username,
-      password: password,
-    });
-    if (response.data.success) {
-      console.log("Successful login!");
-      navigate("/home");
+    try {
+      const response = await axios.post("http://localhost:5000/api/v1/login", {
+        username: username,
+        password: password,
+      });
+      if (response.data.success === true) {
+        console.log("Successful login!");
+        navigate("/home");
+      }
+    } catch (error) {
+      window.alert("Wrong username or password.");
+      console.error(error as AxiosError);
     }
   }
   return (

@@ -12,7 +12,7 @@ const login = async (req: Request, res: Response, next: () => void) => {
         return next();
       } else {
         res.status(400).send({ success: false });
-        return next();
+        // return next();
       }
     });
   } catch (error) {
