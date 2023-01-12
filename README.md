@@ -21,7 +21,7 @@ This website consists of mainly four pages, each one consuming a different exter
 ![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/1login.png?raw=true)
 ![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/2randomUsers.png?raw=true)
 ![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/3randomUsers.png?raw=true)
-![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/4randomDog.png?raw=true)
+![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/4randomDoggo.png?raw=true)
 ![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/5codeCat.png?raw=true)
 ![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/6clientList.png?raw=true)
 ![alt text](https://github.com/daniel-cavalcante/desafio-sharenergy-2023-01/blob/main/samples/7clientList.png?raw=true)
