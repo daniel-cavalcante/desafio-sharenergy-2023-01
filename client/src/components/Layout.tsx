@@ -1,6 +1,8 @@
 import "../App.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { SharenergyLogo, TheTesteDanielCavalcanteLogo } from "./Logos/Logos";
+
+import { FC } from "react";
 
 function Layout() {
   // const [selected, setSelected] = ..?
@@ -35,7 +37,9 @@ function Layout() {
       </header>
 
       <main>
-        <Outlet />
+        <RequireAuth>
+          <Outlet />
+        </RequireAuth>
       </main>
 
       <footer>
@@ -44,5 +48,15 @@ function Layout() {
     </>
   );
 }
+
+const RequireAuth: FC<{ children: React.ReactElement }> = ({ children }) => {
+  const navigate = useNavigate();
+  const userIsLogged = sessionStorage.getItem("accessToken") && true; // Your hook to get login status
+
+  if (!userIsLogged) {
+    navigate("/notLogged");
+  }
+  return children;
+};
 
 export default Layout;

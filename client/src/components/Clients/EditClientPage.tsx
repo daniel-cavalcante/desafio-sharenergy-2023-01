@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import requestInstance from "../../controllers/axiosConfig";
 import Title from "../Utils/Title";
 import { ClientUser } from "../Utils/User.types";
 import ClientForm from "./ClientForm";
@@ -14,7 +14,7 @@ const EditClient = () => {
   });
 
   const getUser = async () => {
-    const response = await axios.get<ClientUser>(
+    const response = await requestInstance.get<ClientUser>(
       `http://localhost:5000/api/v1/clients/${_id}`
     );
     setUserInfo(response.data);

@@ -1,8 +1,8 @@
 import { ClientUser } from "../Utils/User.types";
 import { nanoid } from "nanoid";
 import { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import requestInstance from "../../controllers/axiosConfig";
 
 const ClientUserList = (users: { list: Array<ClientUser> }) => {
   const usersList = users.list.map((item) => {
@@ -26,7 +26,7 @@ const ClientUserCard = (props: { user: ClientUser }) => {
 
   const deleteUser = async () => {
     try {
-      await axios.delete("http://localhost:5000/api/v1/clients", {
+      await requestInstance.delete("http://localhost:5000/api/v1/clients", {
         data: { _id: props.user._id },
       });
       window.location.reload();

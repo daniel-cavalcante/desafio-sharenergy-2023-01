@@ -28,8 +28,8 @@ function App() {
           <Route path='/clients' element={<Clients />} />
           <Route path='/clients/new' element={<NewClient />} />
           <Route path='/clients/edit/:_id' element={<EditClient />} />
-          <Route path='*' element={<Missing />} />
         </Route>
+        <Route path='*' element={<Missing />} />
       </Routes>
     </BrowserRouter>
   );

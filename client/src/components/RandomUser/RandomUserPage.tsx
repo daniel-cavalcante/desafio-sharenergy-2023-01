@@ -3,8 +3,8 @@ import Title from "../Utils/Title";
 import RandomUserList from "./RandomUserList";
 import SearchBar from "./SearchBar";
 import PageSelector from "./PageSelector";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import requestInstance from "../../controllers/axiosConfig";
 
 const RandomUserPage = (): JSX.Element => {
   const [maxPages, setMaxPages] = useState<number>(1);
@@ -17,7 +17,7 @@ const RandomUserPage = (): JSX.Element => {
   }, [page]);
 
   const getMaxPages = async () => {
-    const response = await axios.get(
+    const response = await requestInstance.get(
       "http://localhost:5000/api/v1/random-user-generator/maxPages"
     );
     setMaxPages(response.data.maxPages);
@@ -25,7 +25,7 @@ const RandomUserPage = (): JSX.Element => {
 
   const getRandomUsers = async (pageNumber: number) => {
     try {
-      const response = await axios.get<RandomUser[]>(
+      const response = await requestInstance.get<RandomUser[]>(
         `http://localhost:5000/api/v1/random-user-generator/page/${pageNumber}`
       );
       setRandomUsers(response.data);

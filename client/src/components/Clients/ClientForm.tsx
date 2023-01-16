@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import requestInstance from "../../controllers/axiosConfig";
 import { ClientUser } from "../Utils/User.types";
 
 const ClientForm = (props: { userInfo: ClientUser; isNew?: boolean }) => {
@@ -32,7 +32,7 @@ const ClientForm = (props: { userInfo: ClientUser; isNew?: boolean }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (props.isNew) {
-      await axios.post(`http://localhost:5000/api/v1/clients`, {
+      await requestInstance.post(`http://localhost:5000/api/v1/clients`, {
         name: userInfo.name,
         email: userInfo.email,
         id: userInfo.id,
@@ -40,7 +40,7 @@ const ClientForm = (props: { userInfo: ClientUser; isNew?: boolean }) => {
         location: userInfo.location,
       });
     } else {
-      await axios.put(`http://localhost:5000/api/v1/clients`, {
+      await requestInstance.put(`http://localhost:5000/api/v1/clients`, {
         name: userInfo.name,
         email: userInfo.email,
         _id: userInfo._id,

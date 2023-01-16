@@ -1,9 +1,9 @@
 import { ClientUser } from "../Utils/User.types";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import ClientUserList from "./ClientUserList";
 import Title from "../Utils/Title";
 import { Link } from "react-router-dom";
+import requestInstance from "../../controllers/axiosConfig";
 
 function Clients() {
   const [clientUsers, setClientUsers] = useState<ClientUser[]>([]);
@@ -14,7 +14,7 @@ function Clients() {
 
   const getClientUsers = async () => {
     try {
-      const response = await axios.get<ClientUser[]>(
+      const response = await requestInstance.get<ClientUser[]>(
         `http://localhost:5000/api/v1/clients`
       );
       setClientUsers(response.data);

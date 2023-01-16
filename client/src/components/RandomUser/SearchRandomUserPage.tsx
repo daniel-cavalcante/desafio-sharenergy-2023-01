@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RandomUser } from "../Utils/User.types";
-import axios from "axios";
 import UserList from "./RandomUserList";
 import Title from "../Utils/Title";
 import SearchBar from "./SearchBar";
+import requestInstance from "../../controllers/axiosConfig";
 
 const SearchRandomUserPage = () => {
   const { keywords } = useParams();
@@ -19,7 +19,7 @@ const SearchRandomUserPage = () => {
   const searchRandomUsers = async (keywords: string | undefined) => {
     try {
       if (typeof keywords !== "undefined") {
-        const response = await axios.get<RandomUser[]>(
+        const response = await requestInstance.get<RandomUser[]>(
           "http://localhost:5000/api/v1/random-user-generator/query?keywords=" +
             keywords
         );

@@ -14,11 +14,17 @@ import {
 import sendCat from './controllers/statusCodeController';
 import getDog from './controllers/refreshDogController';
 
-import { login } from './middleware/auth';
+import { login, verifyToken } from './middleware/auth';
 
 const router = Router();
 
 router.post('/login', login);
+
+router.get('/status-code/:code', sendCat);
+
+router.get('/refresh-dog', getDog);
+
+router.use(verifyToken);
 
 router.get('/random-user-generator/maxPages', getMaxPages);
 
@@ -27,10 +33,6 @@ router.get('/random-user-generator/page/:page', getRandomUsers);
 // Example URL:
 // http://localhost:5000/api/v1/random-user-generator/query?keywords=organic,sacha
 router.get('/random-user-generator/query', searchRandomUsers);
-
-router.get('/status-code/:code', sendCat);
-
-router.get('/refresh-dog', getDog);
 
 router.get('/clients', getUserList);
 

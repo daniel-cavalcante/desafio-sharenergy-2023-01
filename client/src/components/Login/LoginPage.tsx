@@ -6,6 +6,7 @@ import { TheTesteDanielCavalcanteLogo, SharenergyLogo } from "../Logos/Logos";
 const LoginPage = () => {
   const localUsername = localStorage.getItem("username");
   const localPassword = localStorage.getItem("password");
+
   const [username, setUsername] = useState<string>(
     localUsername ? localUsername : ""
   );
@@ -36,7 +37,8 @@ const LoginPage = () => {
         username: username,
         password: password,
       });
-      if (response.data.success === true) {
+      if (response.data.accessToken !== undefined) {
+        sessionStorage.setItem("accessToken", response.data.accessToken);
         console.log("Successful login!");
         navigate("/home");
       }
@@ -48,6 +50,7 @@ const LoginPage = () => {
   return (
     <div id='login-wrapper'>
       <TheTesteDanielCavalcanteLogo id='login-teste-logo' />
+
       <form onSubmit={handleSubmit}>
         <input
           type='text'
@@ -81,6 +84,7 @@ const LoginPage = () => {
           <label htmlFor='remember-checkbox'>remember me</label>
         </div>
       </form>
+
       <span id='sharenergy-logo-container'>
         <a
           href='https://www.sharenergy.com.br/'
